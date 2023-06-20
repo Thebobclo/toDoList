@@ -7,8 +7,13 @@
   font-family: 'Poppins', sans-serif;
 }
 
+::selection {
+  color: #ffff;
+  background: rgb(38, 12, 71);
+}
+
 body {
-  width: 100%;
+  width: 99%;
   height: 100vh;
   /* overflow: hidden; */
   padding: 10px;
@@ -16,10 +21,8 @@ body {
 }
 
 .wrapper {
-  background: #ffffff;
+  background: #fff;
   max-width: 400px;
-  display: flex;
-  flex-direction: column;
   width: 100%;
   margin: 120px auto;
   padding: 25px;
@@ -30,19 +33,42 @@ body {
 .wrapper header {
   font-size: 30px;
   font-weight: 600;
-  text-align: center;
 }
 
 .wrapper .inputField {
   margin: 20px 0;
   width: 100%;
   display: flex;
-  height: 45px;
-  position: relative;
+  justify-content: center;
 }
 
-.inputField input {
-  width: 85%;
+.inputField-two {
+  margin: 20px 0;
+  margin-bottom: 50px;
+  display: flex;
+
+  justify-content: center;
+}
+
+.inputField-three {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+
+}
+
+.firstTask {
+  padding-bottom: 10px;
+}
+
+
+.inputField input,
+textarea {
+  width: 90%;
   height: 100%;
   outline: none;
   border-radius: 3px;
@@ -50,10 +76,16 @@ body {
   font-size: 17px;
   padding-left: 15px;
   transition: all 0.3s ease;
+  padding-bottom: 10px;
 }
 
+textarea:focus {
+  border-color: #8E49E8;
+}
 
-.inputField button {
+.inputField button,
+#inputField-twoBtn,
+#inputField-threeBtn {
   width: 50px;
   height: 100%;
   border: none;
@@ -61,7 +93,7 @@ body {
   margin-left: 5px;
   font-size: 21px;
   outline: none;
-  background: #1524f0;
+  background: #6e04f8;
   cursor: pointer;
   border-radius: 3px;
   opacity: 0.6;
@@ -69,19 +101,24 @@ body {
   transition: all 0.3s ease;
 }
 
+.inputField button:hover,
+.footer button:hover {
+  background: #6e04f8;
+}
+
+.inputField button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .wrapper .todoList {
   max-height: 250px;
   overflow-y: auto;
 }
 
-.button {
-  display: none;
+.todoList li {
   position: relative;
   list-style: none;
-  font-size: 17px;
-  padding-left: 15px;
-  transition: all 0.3s ease;
   margin-bottom: 8px;
   background: #f2f2f2;
   border-radius: 3px;
@@ -89,56 +126,6 @@ body {
   cursor: default;
   overflow: hidden;
   word-wrap: break-word;
-}
-
-
-/* .todoList li .icon{
-  position: absolute;
-  right: -45px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #2b16ec;
-  width: 45px;
-  text-align: center;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 0 3px 3px 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}  */
-
-.wrapper .footer {
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  font-size: 30px;
-  font-weight: 600;
-  margin-top: 20px;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.footer button {
-  padding: 6px 10px;
-  border-radius: 3px;
-  border: none;
-  outline: none;
-  color: #fff;
-  font-weight: 400;
-  font-size: 16px;
-  margin-left: 5px;
-  background: #1524f0;
-  cursor: pointer;
-  user-select: none;
-  opacity: 0.6;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-
-.footer button.active {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .todoList li .icon {
@@ -156,78 +143,169 @@ body {
   transition: all 0.2s ease;
 }
 
-/* .todoList li:hover .icon{
-    right: 100px;
-  } */
-.tasks-img {
-  display: flex;
-  padding: 6px 10px;
+.todoList li:hover .icon {
+  right: 0px;
 }
 
+.wrapper .footer {
+  padding-top: 50px;
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
 
-
-.dropbtn {
-  width: 50px;
-  height: 100%;
-  border: none;
-  color: #fff;
-  margin-left: 5px;
-  font-size: 21px;
-  outline: none;
-  background: #1524f0;
-  cursor: pointer;
+.footer button {
+  padding: 6px 10px;
   border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  margin-left: 5px;
+  background: #6e04f8;
+  cursor: pointer;
+  user-select: none;
   opacity: 0.6;
   pointer-events: none;
   transition: all 0.3s ease;
 }
 
-/* Контейнер <div> - необходим для размещения выпадающего содержимого */
+.footer button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: flex;
   width: 100%;
+  justify-content: center;
 
 }
 
-/* Выпадающее содержимое (скрыто по умолчанию) */
-.dropdown-content {
-  display: none;
-  margin-top: 45px;
+.dropdownToo {
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  justify-content: space-around;
+}
+
+.dropdownThree {
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  justify-content: space-around;
+}
+
+
+.dropdown-contentToo {
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  align-items: center;
+  width:114%;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  /* transition: all 0.3s ease;
+  transition: all 0.7s;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1); */
 }
 
-/* Ссылки внутри выпадающего списка */
-.dropdown-content a {
-  color: black;
-  padding: 10px 16px;
-  text-decoration: none;
-  display: inline-block;
-  width: 85%;
-  height: 100%;
-  outline: none;
-  border-radius: 3px;
-  font-size: 17px;
-  padding-left: 15px;
+.dropdown-contentThree {
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  align-items: center;
+  width: 114%;
+  position: absolute;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding-bottom: 20px;
   transition: all 0.3s ease;
-
 }
 
-/* Изменение цвета выпадающих ссылок при наведении курсора */
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  align-items: center;
+  width: 114%;
+  
+  position: absolute;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Links inside the dropdown */
+.dropdown-content p {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: #ddd;
 }
 
-/* Показать выпадающее меню при наведении курсора */
+/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-  display: block;
+  opacity: 1
 }
 
-/* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
+.dropdownToo:hover .dropdown-contentToo {
+  opacity: 1
+}
+
+.dropdownThree:hover .dropdown-contentThree {
+  opacity: 1
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+/* .dropdownToo:hover .dropdown-contentToo{background-color: #3e8e41;} */
+
+
 .dropdown:hover .dropbtn {
   background-color: #5160b3;
+}
+
+.inputField input:focus {
+  border-color: #2a27f1;
+}
+
+.inputField input:focus {
+  border-color: #2a27f1;
 }

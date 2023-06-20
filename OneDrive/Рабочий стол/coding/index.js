@@ -25,3 +25,5 @@ function updateTask(newOptions, id) {
   });
 }
 
+//создать метод который переносит из TODOS[] в CompliteTODOS
+//метод котолрый ищет TODO по имени
