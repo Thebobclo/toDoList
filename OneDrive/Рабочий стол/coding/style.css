@@ -42,13 +42,12 @@ body {
   justify-content: center;
 }
 
-.inputField-two {
+.controls {
   margin: 20px 0;
-  margin-bottom: 50px;
   display: flex;
-
-  justify-content: center;
+  justify-content: space-around;
 }
+
 
 .inputField-three {
   margin: 20px 0;
@@ -85,7 +84,7 @@ textarea:focus {
 
 .inputField button,
 #inputField-twoBtn,
-#inputField-threeBtn {
+#inputField-threeBtn ,#inputField-twoBtnNohover{
   width: 50px;
   height: 100%;
   border: none;
@@ -93,7 +92,7 @@ textarea:focus {
   margin-left: 5px;
   font-size: 21px;
   outline: none;
-  background: #6e04f8;
+  background: #047c54fd;
   cursor: pointer;
   border-radius: 3px;
   opacity: 0.6;
@@ -103,7 +102,7 @@ textarea:focus {
 
 .inputField button:hover,
 .footer button:hover {
-  background: #6e04f8;
+  background: #047c54fd;
 }
 
 .inputField button.active {
@@ -143,9 +142,7 @@ textarea:focus {
   transition: all 0.2s ease;
 }
 
-.todoList li:hover .icon {
-  right: 0px;
-}
+
 
 .wrapper .footer {
   padding-top: 50px;
@@ -165,7 +162,7 @@ textarea:focus {
   font-weight: 400;
   font-size: 16px;
   margin-left: 5px;
-  background: #6e04f8;
+  background: #047c54fd;
   cursor: pointer;
   user-select: none;
   opacity: 0.6;
@@ -187,6 +184,24 @@ textarea:focus {
   border: none;
 }
 
+#inputField-twoBtnNohover,
+#inputField-BtnDelet,
+#inputField-BtnEdit {
+  width: 50px;
+  height: 100%;
+  border: none;
+  color: #fff;
+  margin-left: 5px;
+  font-size: 21px;
+  outline: none;
+  background: #047c54fd;
+  cursor: pointer;
+  border-radius: 3px;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
@@ -201,7 +216,7 @@ textarea:focus {
   display: flex;
   width: 100%;
 
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .dropdownThree {
@@ -216,20 +231,24 @@ textarea:focus {
 .dropdown-contentToo {
   display: flex;
   opacity: 0;
-  flex-direction: column;
+  justify-content: space-between;
+  /* margin-left: 253px; */
+  flex-direction: row;
+  padding-left: 10px;
   align-items: center;
-  width:114%;
+  width: 100%;
   position: absolute;
   background-color: #f1f1f1;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  margin-top: 32px;
   padding-top: 10px;
-  /* transition: all 0.3s ease;
+  transition: all 0.3s ease;
   transition: all 0.7s;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
-  transform: scale(1); */
+  transform: scale(1);
 }
 
 .dropdown-contentThree {
@@ -253,13 +272,13 @@ textarea:focus {
   flex-direction: column;
   align-items: center;
   width: 114%;
-  
   position: absolute;
   background-color: #f1f1f1;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   padding-bottom: 20px;
   transition: all 0.3s ease;
+
 }
 
 /* Links inside the dropdown */
@@ -270,6 +289,12 @@ textarea:focus {
   width: 100%;
   margin-bottom: 20px;
   text-align: center;
+}
+.btndropOne{
+  padding-top: 10px;
+}
+span.active {
+  color: #020744;
 }
 
 /* Change color of dropdown links on hover */
@@ -291,12 +316,14 @@ textarea:focus {
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
+.dropdown:hover #inputField-twoBtn {
   background-color: #3e8e41;
 }
 
+.dropdownToo:hover #inputField-twoBtn {
+  background-color: #020744;
+}
 /* .dropdownToo:hover .dropdown-contentToo{background-color: #3e8e41;} */
-
 
 .dropdown:hover .dropbtn {
   background-color: #5160b3;
@@ -308,4 +335,30 @@ textarea:focus {
 
 .inputField input:focus {
   border-color: #2a27f1;
+}
+
+@media (max-width: 400px) {
+  body{
+    padding: 0 10px;
+  }
+  .wrapper {
+    padding: 20px 0;
+  }
+  .filters span{
+    margin: 0 5px;
+  }
+  .task-input{
+    padding: 0 20px;
+  }
+  .controls{
+    padding: 18px 20px;
+  }
+  .task-box{
+    margin-top: 20px;
+    margin-right: 5px;
+    padding: 0 15px 10px 20px;
+  }
+  .task label input{
+    margin-top: 4px;
+  }
 }

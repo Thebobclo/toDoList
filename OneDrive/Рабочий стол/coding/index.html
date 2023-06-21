@@ -74,62 +74,47 @@
           <input type="date" id="date" name="date" />
           <label for="date">Дата окончания: </label>
           <input type="date" id="date" name="date" />
-          <p class="textElements">Комментарий</p>
-          <textarea type="text" placeholder="Комментарий"></textarea>
-          <button id="inputField-twoBtn"><i class="fas fa-plus"></i></button>
+          <div class="btndropOne">
+          <button id="inputField-twoBtnNohover"><i class="fas fa-plus"></i></button>
+        </div>
         </div>
       </div>
     </div>
-    <div class="line">
+    
+    <div class="controls">
+  <div class="filters">
+      <span class="active" id="all">Все</span>
+      <span id="pending">В процессе</span>
+      <span id="completed">Выполненные</span>
+    </div>
+  </div>
+
+  <div class="line">
       <hr class="hr-line">
       </hr>
-    </div>
-    <div class="inputField-two">
-      </dir>
-      <button id="inputField-twoBtn"><i class="fas fa-check"></i></button>
-      <button id="inputField-twoBtn"><i class="fas fa-clock"></i></button>
     </div>
 
     <div class="inputField-three">
       <div class="dropdownToo">
-        <p>Задача номер 1</p>
-        <button id="inputField-twoBtn"><i class="fas fa-info"></i></button>
+        <ul class="todoList">
+          <!-- data are comes from local storage -->
+        </ul>
+        <button id="inputField-twoBtn"><i class="fas fa-caret-down"></i></button>
         <div class="dropdown-contentToo">
-          <p class="textElements">Добавить новую задачу</p>
-          <textarea type="text" placeholder="Текст задачи"></textarea>
-          <label for="date">Дата добавления: </label></br>
-          <label for="date">Дата окончания: </label>
-          <p class="textElements">Комментарий</p>
-          <textarea type="text" placeholder="Комментарий"></textarea>
-          <button id="inputField-threeBtn"><i class="fas fa-plus"></i></button>
+        <p>Редактировать</p>
+          <button id="inputField-BtnEdit"><i class="fa  fa-list"></i></button>
+          <p>Удалить</p>
+          <button id="inputField-BtnDelet"><i class="fa fa-trash"></i></button>
         </div>
       </div>
     </div>
-
-
-    <div class="dropdownThree">
-      <p>Задача номер 2</p>
-      <button id="inputField-twoBtn"><i class="fas fa-info"></i></button>
-      <div class="dropdown-contentThree">
-        <p class="textElements">Меню</p>
-        <textarea type="text" placeholder="Текст задачи"></textarea>
-        <label for="date">Дата добавления: </label></br>
-        <input type="date" id="date" name="date" />
-        <label for="date">Дата окончания: </label>
-        <input type="date" id="date" name="date" />
-        <p class="textElements">Комментарий</p>
-        <textarea type="text" placeholder="Комментарий"></textarea>
-        <button id="inputField-threeBtn"><i class="fas fa-plus"></i></button>
-      </div>
-    </div>
-
 
     <div class="footer">
       <span>У ввывас <span class="pendingTasks"></span> i задач</span>
       <button>Clear All</button>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="/index.js"></script>
 </body>
 
 </html>
