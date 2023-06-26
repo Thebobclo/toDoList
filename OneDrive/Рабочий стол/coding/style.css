@@ -7,10 +7,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
-::selection {
+/* ::selection {
   color: #ffff;
   background: rgb(38, 12, 71);
-}
+} */
 
 body {
   width: 99%;
@@ -74,11 +74,10 @@ textarea {
   border: 1px solid #ccc;
   font-size: 17px;
   padding-left: 15px;
-  transition: all 0.3s ease;
   padding-bottom: 10px;
 }
 
-textarea:focus {
+input:focus {
   border-color: #8E49E8;
 }
 
@@ -95,24 +94,29 @@ textarea:focus {
   background: #047c54fd;
   cursor: pointer;
   border-radius: 3px;
-  opacity: 0.6;
   pointer-events: none;
-  transition: all 0.3s ease;
+
 }
 
-.inputField button:hover,
+/* .inputField button:hover,
 .footer button:hover {
   background: #047c54fd;
-}
+} */
 
-.inputField button.active {
+/* .inputField button.active {
   opacity: 1;
   pointer-events: auto;
-}
+} */
 
 .wrapper .todoList {
   max-height: 250px;
   overflow-y: auto;
+  display: flex;
+}
+
+#div1{
+  display: flex;
+  flex-direction: row;
 }
 
 .todoList li {
@@ -197,7 +201,7 @@ textarea:focus {
   background: #047c54fd;
   cursor: pointer;
   border-radius: 3px;
-  opacity: 0.6;
+
   pointer-events: none;
   transition: all 0.3s ease;
 }
@@ -264,6 +268,9 @@ textarea:focus {
   padding-bottom: 20px;
   transition: all 0.3s ease;
 }
+ul{
+  display: flex;
+}
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
@@ -315,7 +322,7 @@ span.active {
   opacity: 1
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
+
 .dropdown:hover #inputField-twoBtn {
   background-color: #3e8e41;
 }
@@ -323,7 +330,7 @@ span.active {
 .dropdownToo:hover #inputField-twoBtn {
   background-color: #020744;
 }
-/* .dropdownToo:hover .dropdown-contentToo{background-color: #3e8e41;} */
+
 
 .dropdown:hover .dropbtn {
   background-color: #5160b3;
@@ -337,28 +344,3 @@ span.active {
   border-color: #2a27f1;
 }
 
-@media (max-width: 400px) {
-  body{
-    padding: 0 10px;
-  }
-  .wrapper {
-    padding: 20px 0;
-  }
-  .filters span{
-    margin: 0 5px;
-  }
-  .task-input{
-    padding: 0 20px;
-  }
-  .controls{
-    padding: 18px 20px;
-  }
-  .task-box{
-    margin-top: 20px;
-    margin-right: 5px;
-    padding: 0 15px 10px 20px;
-  }
-  .task label input{
-    margin-top: 4px;
-  }
-}
