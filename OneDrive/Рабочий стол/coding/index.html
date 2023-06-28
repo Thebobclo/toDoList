@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- Created By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +13,12 @@
 
   <div class="wrapper">
     <header>Todo App</header>
-
     <div class="inputField">
-        <input id="textinput" class="addInput" type="text" placeholder="Текст задачи"></input>
-        <button id="btn" class="addBtn" type="button"><i class="fas fa-plus"></i></button>
-        <!-- <div class="dropdown-content">
+      <input id="textinput" class="addInput" type="text" placeholder="Текст задачи"></input>
+      <button id="btn2" class="addBtn" type="button">
+        <i class="fas fa-plus"></i></button>
+
+      <!-- <div class="dropdown-content">
           <p class="textElements">Добавить новую задачу</p>
           <textarea type="text" placeholder="Текст задачи"></textarea>
           <label for="date">Дата добавления: </label></br>
@@ -45,26 +45,31 @@
       </hr>
     </div>
 
-    <div class="inputField-three">
-      
-      <div class="dropdownToo">
-        <div id="todoList2"></div>
-        <ul id="todoList" class="todoList">
-          <!-- data are comes from local storage -->
-        </ul>
-        
-        <button id="inputField-twoBtn"><i class="fas fa-caret-down"></i></button>
+
+    <div class="todoListContainer">
+    
+
+
+    </div>
+
+    <!-- <div class="dropdownToo"> -->
+
+    <!-- <button id="inputField-twoBtn"><i class="fas fa-caret-down"></i></button>
         <div class="dropdown-contentToo">
           <p>Редактировать</p>
           <button id="inputField-BtnEdit"><i class="fa  fa-list"></i></button>
           <p>Удалить</p>
           <button id="inputField-BtnDelet"><i class="fa fa-trash"></i></button>
         </div>
-      </div>
-    </div>
+      </div> -->
+
     <div class="footer">
-      <span>У ввывас <span class="pendingTasks"></span> i задач</span>
-      <button id="bbb">Clear All</button>
+
+      <button id="btnfooter">Clear All</button>
+      <div class="footerCounter">
+        
+
+      </div>
     </div>
   </div>
   <script src="/index.js"></script>

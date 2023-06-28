@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /* ::selection {
@@ -17,7 +17,7 @@ body {
   height: 100vh;
   /* overflow: hidden; */
   padding: 10px;
-  background: linear-gradient(to bottom, #68EACC 0%, #497BE8 100%);
+  background: linear-gradient(to bottom, #68eacc 0%, #497be8 100%);
 }
 
 .wrapper {
@@ -40,6 +40,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .controls {
@@ -48,7 +49,6 @@ body {
   justify-content: space-around;
 }
 
-
 .inputField-three {
   margin: 20px 0;
   display: flex;
@@ -56,14 +56,11 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-
-
 }
 
 .firstTask {
   padding-bottom: 10px;
 }
-
 
 .inputField input,
 textarea {
@@ -78,12 +75,13 @@ textarea {
 }
 
 input:focus {
-  border-color: #8E49E8;
+  border-color:#03664dfd;
 }
 
 .inputField button,
 #inputField-twoBtn,
-#inputField-threeBtn ,#inputField-twoBtnNohover{
+#inputField-threeBtn,
+#inputField-twoBtnNohover {
   width: 50px;
   height: 100%;
   border: none;
@@ -91,17 +89,42 @@ input:focus {
   margin-left: 5px;
   font-size: 21px;
   outline: none;
-  background: #047c54fd;
+  background: #03664dfd;
   cursor: pointer;
   border-radius: 3px;
-  pointer-events: none;
-
+}
+ .btn {
+  width: 50px;
+  height: 100%;
+  border: none;
+  color: #fff;
+  margin-left: 5px;
+  font-size: 21px;
+  outline: none;
+  background: #03664dfd;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
-/* .inputField button:hover,
+
+
+.todoListContainer {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  height: 100%;
+  outline: none;
+  border-radius: 3px;
+  font-size: 17px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+.inputField button:hover,
 .footer button:hover {
-  background: #047c54fd;
-} */
+  border-color: #0707ac;
+}
 
 /* .inputField button.active {
   opacity: 1;
@@ -114,10 +137,6 @@ input:focus {
   display: flex;
 }
 
-#div1{
-  display: flex;
-  flex-direction: row;
-}
 
 .todoList li {
   position: relative;
@@ -146,13 +165,11 @@ input:focus {
   transition: all 0.2s ease;
 }
 
-
-
 .wrapper .footer {
   padding-top: 50px;
   display: flex;
   width: 100%;
-  margin-top: 20px;
+
   align-items: center;
   justify-content: space-between;
 }
@@ -166,111 +183,40 @@ input:focus {
   font-weight: 400;
   font-size: 16px;
   margin-left: 5px;
-  background: #047c54fd;
+  background:#03664dfd;;
   cursor: pointer;
-  user-select: none;
-  opacity: 0.6;
-  pointer-events: none;
   transition: all 0.3s ease;
 }
 
-.footer button.active {
+.footer button:active {
   opacity: 1;
   pointer-events: auto;
+  background:#2a27f1;;
+  
+}
+.inputField button:active {
+  opacity: 1;
+  pointer-events: auto;
+  background:#2a27f1;
 }
 
 /* Dropdown Button */
-.dropbtn {
+/* .dropbtn {
   background-color: #4CAF50;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
-}
+} */
 
-#inputField-twoBtnNohover,
-#inputField-BtnDelet,
-#inputField-BtnEdit {
-  width: 50px;
-  height: 100%;
-  border: none;
-  color: #fff;
-  margin-left: 5px;
-  font-size: 21px;
-  outline: none;
-  background: #047c54fd;
-  cursor: pointer;
-  border-radius: 3px;
-
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
 
 /* The container <div> - needed to position the dropdown content */
-.dropdown {
+/* .dropdown {
   position: relative;
   display: flex;
   width: 100%;
   justify-content: center;
-
-}
-
-.dropdownToo {
-  position: relative;
-  display: flex;
-  width: 100%;
-
-  justify-content: space-between;
-}
-
-.dropdownThree {
-  position: relative;
-  display: flex;
-  width: 100%;
-
-  justify-content: space-around;
-}
-
-
-.dropdown-contentToo {
-  display: flex;
-  opacity: 0;
-  justify-content: space-between;
-  /* margin-left: 253px; */
-  flex-direction: row;
-  padding-left: 10px;
-  align-items: center;
-  width: 100%;
-  position: absolute;
-  background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  padding-bottom: 10px;
-  margin-top: 32px;
-  padding-top: 10px;
-  transition: all 0.3s ease;
-  transition: all 0.7s;
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-}
-
-.dropdown-contentThree {
-  display: flex;
-  opacity: 0;
-  flex-direction: column;
-  align-items: center;
-  width: 114%;
-  position: absolute;
-  background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  padding-bottom: 20px;
-  transition: all 0.3s ease;
-}
-ul{
-  display: flex;
-}
+} */
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
@@ -285,62 +231,13 @@ ul{
   z-index: 1;
   padding-bottom: 20px;
   transition: all 0.3s ease;
-
 }
 
-/* Links inside the dropdown */
-.dropdown-content p {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  width: 100%;
-  margin-bottom: 20px;
-  text-align: center;
-}
-.btndropOne{
-  padding-top: 10px;
-}
 span.active {
   color: #020744;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  opacity: 1
-}
-
-.dropdownToo:hover .dropdown-contentToo {
-  opacity: 1
-}
-
-.dropdownThree:hover .dropdown-contentThree {
-  opacity: 1
-}
-
-
-.dropdown:hover #inputField-twoBtn {
-  background-color: #3e8e41;
-}
-
-.dropdownToo:hover #inputField-twoBtn {
-  background-color: #020744;
-}
-
-
-.dropdown:hover .dropbtn {
-  background-color: #5160b3;
-}
-
 .inputField input:focus {
-  border-color: #2a27f1;
+  
+  border-color: #03664dfd;
 }
-
-.inputField input:focus {
-  border-color: #2a27f1;
-}
-
