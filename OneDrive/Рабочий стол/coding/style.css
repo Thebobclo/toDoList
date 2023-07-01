@@ -14,7 +14,7 @@
 
 body {
   width: 99%;
-  height: 100vh;
+  height: 200vh;
   /* overflow: hidden; */
   padding: 10px;
   background: linear-gradient(to bottom, #68eacc 0%, #497be8 100%);
@@ -49,14 +49,7 @@ body {
   justify-content: space-around;
 }
 
-.inputField-three {
-  margin: 20px 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-}
+
 
 .firstTask {
   padding-bottom: 10px;
@@ -71,11 +64,12 @@ textarea {
   border: 1px solid #ccc;
   font-size: 17px;
   padding-left: 15px;
-  padding-bottom: 10px;
+  padding-bottom: 3px;
+  padding-top: 3px;
 }
 
 input:focus {
-  border-color:#03664dfd;
+  border-color: #03664dfd;
 }
 
 .inputField button,
@@ -93,13 +87,18 @@ input:focus {
   cursor: pointer;
   border-radius: 3px;
 }
- .btn {
-  width: 50px;
-  height: 100%;
-  border: none;
+
+.todoListContainer button {
+  width: 25px;
   color: #fff;
-  margin-left: 5px;
-  font-size: 21px;
+  outline: none;
+  background: #03664dfd;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.todolistRight i {
+  width: 19px;
+  color: #fff;
   outline: none;
   background: #03664dfd;
   cursor: pointer;
@@ -107,13 +106,25 @@ input:focus {
 }
 
 
+.btn {
+  width: 50px;
+  height: 100%;
+  border: none;
+  margin-left: 5px;
+  font-size: 21px;
+  outline: none;
+  background: #03664dfd;
+  cursor: pointer;
+
+}
 
 .todoListContainer {
   display: flex;
   padding: 20px;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 90%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
   height: 100%;
   outline: none;
   border-radius: 3px;
@@ -121,15 +132,20 @@ input:focus {
   padding-left: 15px;
   padding-bottom: 10px;
 }
-.inputField button:hover,
-.footer button:hover {
-  border-color: #0707ac;
-}
 
-/* .inputField button.active {
-  opacity: 1;
-  pointer-events: auto;
-} */
+.todolistLeft{
+  text-align: left;
+  flex: 50%;
+}
+.todolistRight{
+  text-align: right;
+  flex: 50%;
+  }
+.inputField button:hover,
+.footer button:hover .todoListContainer button:hover {
+  border-color: #0707ac;
+
+}
 
 .wrapper .todoList {
   max-height: 250px;
@@ -165,6 +181,10 @@ input:focus {
   transition: all 0.2s ease;
 }
 
+li::marker {
+  color: #03664dfd;
+}
+
 .wrapper .footer {
   padding-top: 50px;
   display: flex;
@@ -183,7 +203,8 @@ input:focus {
   font-weight: 400;
   font-size: 16px;
   margin-left: 5px;
-  background:#03664dfd;;
+  background: #03664dfd;
+  ;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -191,13 +212,15 @@ input:focus {
 .footer button:active {
   opacity: 1;
   pointer-events: auto;
-  background:#2a27f1;;
-  
+  background: #2a27f1;
+  ;
+
 }
+
 .inputField button:active {
   opacity: 1;
   pointer-events: auto;
-  background:#2a27f1;
+  background: #2a27f1;
 }
 
 /* Dropdown Button */
@@ -238,6 +261,6 @@ span.active {
 }
 
 .inputField input:focus {
-  
+
   border-color: #03664dfd;
 }
