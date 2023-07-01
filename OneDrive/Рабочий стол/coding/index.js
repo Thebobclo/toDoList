@@ -6,21 +6,29 @@ const addButton = document.querySelector("#btn2");
 const clearAllbtn = document.querySelector("#btnfooter");
 const footerContainer = document.querySelector(".footerCounter");
 
-addButton.addEventListener("click", (event) => {
+root.addEventListener("click", (event) => {
   switch (true) {
-    case event.target.className === "fas fa-plus":
+    case event.target.id === "btn2":
       todolist.push({
-        id: Math.random(),
+        id:String(Math.random()) ,
         title: value,
         status: "todo",
       });
       clear();
       updateCounter();
       render();
-    case event.target.classlist.contains ("toggleStatus"):
-      objtoChange = todolist.find((todo) => todo.id === event.target.dataset.id);
-      console.log(event.target.dataset);
+      break;
+    case event.target.classList.contains("toggleStatus"):
+      console.log(event.target.dataset)
+      objtoChange = todolist.find(
+        (todo) => todo.id === event.target.dataset.id
+      );
       objtoChange.status = objtoChange.status === "todo" ? "done" : "todo";
+      break;
+    case event.target.id === "btnfooter":
+      clear();
+      clearAll();
+      break;
   }
 });
 
@@ -28,17 +36,10 @@ root.addEventListener("change", (event) => {
   switch (true) {
     case event.target.id === "textinput":
       value = event.target.value;
-    // case event.target.classlist.contains("toggleStatus"):
-    //   objtochange = todolist.find((todo) => todo.id === event.target.dataset.id);
-    //   console.log(event.target.dataset)
-    //   objtochange.status = objtochange.status === "todo" ? "done" : "todo";
   }
 });
 
-clearAllbtn.addEventListener("click", (event) => {
-  clear();
-  clearAll();
-});
+clearAllbtn.addEventListener("click", () => {});
 
 function render() {
   todolist.forEach((todo) =>
