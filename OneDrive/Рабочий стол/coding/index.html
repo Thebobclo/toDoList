@@ -8,52 +8,28 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
-
 <body>
-
   <div class="wrapper">
     <header>Todo App</header>
     <div class="inputField">
       <input id="textinput" class="addInput" type="text" placeholder="Текст задачи"></input>
-      <button id="btn2" class="addBtn" type="button">
-        <i class="fas fa-plus"></i></button>
-
-      <!-- <div class="dropdown-content">
-          <p class="textElements">Добавить новую задачу</p>
-          <textarea type="text" placeholder="Текст задачи"></textarea>
-          <label for="date">Дата добавления: </label></br>
-          <input type="date" id="date" name="date" />
-          <label for="date">Дата окончания: </label>
-          <input type="date" id="date" name="date" />
-          <div class="btndropOne">
-          <button id="inputField-twoBtnNohover"><i class="fas fa-plus"></i></button>
-        </div>
-        </div>  -->
-
+      <button id="addTaskButton" class="addBtn" type="button">
+        <i class="fas fa-plus" id="addTaskButton">  </i></button>
     </div>
-
     <div class="controls">
-      <div class="filters">
-        <span class="active" id="all">Все</span>
-        <span id="pending">В процессе</span>
-        <span id="completed">Выполненные</span>
-      </div>
+    
+        <button data-mode="all" class="ChangeModeBtn" type="button"><i class="fa fa-bars">Все</i></button>
+        <button data-mode="todo"class="ChangeModeBtn" type="button"><i class="fa fa-spinner">В процессе</i></button>
+        <button data-mode="done"class="ChangeModeBtn" type="button"><i class="fa fa-check">Выполненно</i></button>
+  
     </div>
-
     <div class="line">
       <hr class="hr-line">
       </hr>
     </div>
-
-
     <div class="todoListContainer">
-    
-
-
     </div>
-
     <!-- <div class="dropdownToo"> -->
-
     <!-- <button id="inputField-twoBtn"><i class="fas fa-caret-down"></i></button>
         <div class="dropdown-contentToo">
           <p>Редактировать</p>
@@ -62,13 +38,9 @@
           <button id="inputField-BtnDelet"><i class="fa fa-trash"></i></button>
         </div>
       </div> -->
-
     <div class="footer">
-
       <button id="btnfooter">Clear All</button>
       <div class="footerCounter">
-        
-
       </div>
     </div>
   </div>

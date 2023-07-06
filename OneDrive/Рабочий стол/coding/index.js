@@ -1,16 +1,21 @@
 let todolist = [];
 let value = "";
+let filterMode = "all";
+let mode = "all";
 const root = document.querySelector(".wrapper");
 const todoListContainer = document.querySelector(".todoListContainer");
 const addButton = document.querySelector("#btn2");
 const clearAllbtn = document.querySelector("#btnfooter");
 const footerContainer = document.querySelector(".footerCounter");
+const statusChangeButton = document.querySelector("#toggleBtn");
+
+const statusContainer = document.querySelector(".controls");
 
 root.addEventListener("click", (event) => {
   switch (true) {
-    case event.target.id === "btn2":
+    case event.target.id === "addTaskButton":
       todolist.push({
-        id:String(Math.random()) ,
+        id: String(Math.random()),
         title: value,
         status: "todo",
       });
@@ -19,7 +24,6 @@ root.addEventListener("click", (event) => {
       render();
       break;
     case event.target.classList.contains("toggleStatus"):
-      console.log(event.target.dataset)
       objtoChange = todolist.find(
         (todo) => todo.id === event.target.dataset.id
       );
@@ -28,6 +32,7 @@ root.addEventListener("click", (event) => {
     case event.target.id === "btnfooter":
       clear();
       clearAll();
+
       break;
   }
 });
@@ -42,18 +47,33 @@ root.addEventListener("change", (event) => {
 clearAllbtn.addEventListener("click", () => {});
 
 function render() {
-  todolist.forEach((todo) =>
-    todoListContainer.insertAdjacentHTML(
-      "beforeend",
-      `<div class="todolistLeft"<ul> <li>${todo.title}</li></ul> </div>
+  todolist.forEach((todo) => {
+    if (mode === todo.status || mode === "all") {
+      todoListContainer.insertAdjacentHTML(
+        "beforeend",
+        `<div class="todolistLeft"<ul> <li>${todo.title}  </li></ul> </div>
     <div class="todolistRight" 
-    <button  data-id="${todo.id}" class="toggleStatus" type="button">
-    <i class="fa fa-check"></i></button>   
-   <button   data-id="${todo.id}" class="toggleStatus" type="button">
-    <i class="fa fa-list"></i></button>   </div>`
-    )
-  );
+
+    <button data-id="${todo.id}" id="toggleBtn" class="toggleStatus" type="button">
+    <i id="toggleBtn" class="fa fa-check"></i></button>   
+
+
+   <button data-id="${todo.id}"  id="toggleBtn" class="toggleStatus" type="button">
+    <i id="toggleBtn" class="fa fa-list"></i></button></div>`
+      );
+    }
+  });
 }
+
+statusContainer.addEventListener("click", (event) => {
+  switch (true) {
+    case event.target.classList.contains("ChangeModeBtn"):
+      mode = event.target.dataset.mode;
+      console.log(mode);
+      clear();
+      render();
+  }
+});
 
 function clear() {
   todoListContainer.innerHTML = "";
