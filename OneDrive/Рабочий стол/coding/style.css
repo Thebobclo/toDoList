@@ -82,8 +82,10 @@ input:focus {
   border-color: #03664dfd;
 }
 
-.toggleText:active {
-  border-color: #03664dfd;
+.active {
+  border-bottom: 4px ridge #03664dfd;
+  box-sizing: border-box;
+
 }
 
 .inputField button,
@@ -119,7 +121,18 @@ input:focus {
   cursor: pointer;
   border-radius: 3px;
 }
-
+.paginationConteiner button{
+  width: 25px;
+  color: #fff;
+  outline: none;
+  background: #03664dfd;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.paginationConteiner{
+  display: flex;
+  justify-content: center;
+}
 
 
 .todolistRight i {
@@ -237,6 +250,7 @@ li::marker {
 }
 
 .footer button:active,
+.paginationConteiner button:active,
 .controls button:active,
 .todoListContainer button:active {
   opacity: 1;
@@ -272,6 +286,6 @@ span.active {
   border-color: #03664dfd;
 }
 
-.taskSelector:active{
+.taskSelector:active {
   border-color: #03664dfd;
 }
