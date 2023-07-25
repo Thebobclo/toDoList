@@ -4,9 +4,10 @@ let filterMode = "all";
 let selectedTask = null;
 let mode = "all";
 let pagination = {
-  pageAmount: Number,
-  currentPage: Number,
-  itemsinPage: Number,
+  pageAmount: 1,
+  currentPage: 1,
+  itemsinPage: 5,
+  pageContainer: document.querySelector(".paginationNumber"),
 };
 const root = document.querySelector(".wrapper");
 const todoListContainer = document.querySelector(".todoListContainer");
@@ -16,6 +17,9 @@ const footerContainer = document.querySelector(".footerCounter");
 const statusChangeButton = document.querySelector("#toggleBtn");
 const statusContainer = document.querySelector(".controls");
 const editButton = document.querySelector(".editButton");
+const paginationLeft = document.querySelector(".paginationLeft");
+const paginationRight = document.querySelector(".paginationRight");
+const paginationContainer = document.querySelector(".paginationContainer");
 
 root.addEventListener("click", (event) => {
   switch (true) {
@@ -45,6 +49,7 @@ root.addEventListener("click", (event) => {
     case event.target.id === "btnfooter":
       clear();
       clearAll();
+      clearPaginationContainer();
       break;
   }
 });
@@ -84,15 +89,51 @@ todoListContainer.addEventListener("click", (event) => {
 
 clearAllbtn.addEventListener("click", () => {});
 
+paginationContainer.addEventListener("click", (event) => {
+  switch (true) {
+    case event.target.id === "paginationLeft":
+      if (pagination.currentPage > 1) {
+        pagination.currentPage--;
+        pagination.pageContainer.innerText = pagination.currentPage;
+      }
+      clear();
+      updateCounter();
+      render();
+    case event.target.id === "paginationRight":
+      if (pagination.currentPage < pagination.pageAmount) {
+        pagination.currentPage++;
+        pagination.pageContainer.innerText = pagination.currentPage;
+      }
+      clear();
+      updateCounter();
+      render();
+  }
+});
+
 function render() {
-  todolist.forEach((todo) => {
-    if (mode === todo.status || mode === "all") {
+  const prepereTodo = todolist.filter(
+    (todo) => mode === todo.status || mode === "all"
+  );
+  clearPaginationContainer(prepereTodo);
+  pagination.pageAmount = Math.ceil(prepereTodo.length / 5);
+  let renderRange = {
+    start:
+      pagination.currentPage === 1
+        ? 0
+        : pagination.currentPage * pagination.itemsinPage -
+          pagination.itemsinPage,
+    fin: pagination.currentPage * pagination.itemsinPage - 1,
+  };
+
+  prepereTodo.forEach((todo, index) => {
+    if (index >= renderRange.start && index <= renderRange.fin) {
       todoListContainer.insertAdjacentHTML(
         "beforeend",
         `<div class="todolistLeft" <ul> 
         <li class="toggleText ${
           todo.id === selectedTask?.id ? "active" : ""
         }">${todo.title}  </li></ul> </div>
+
     <div class="todolistRight" 
     <button data-id="${
       todo.id
@@ -107,7 +148,6 @@ function render() {
       );
     }
   });
-  
 }
 
 statusContainer.addEventListener("click", (event) => {
@@ -115,6 +155,8 @@ statusContainer.addEventListener("click", (event) => {
     case event.target.classList.contains("ChangeModeBtn"):
       mode = event.target.dataset.mode;
       clear();
+      clearAll();
+      clearPaginationContainer();
       render();
   }
 });
@@ -126,8 +168,18 @@ function clear() {
 
 function clearAll() {
   todolist.splice(0, todolist.length);
+  pagination.pageContainer.innerText = pagination.currentPage = 1;
 }
 
 function updateCounter() {
   footerContainer.innerHTML = `<p>У вас ${todolist.length} задач </p>`;
 }
+
+function clearPaginationContainer(prepereTodo) {
+  if (prepereTodo?.length) {
+    paginationContainer.classList.remove("hidden");
+  } else {
+    paginationContainer.classList.add("hidden");
+  }
+}
+render();
