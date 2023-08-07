@@ -1,4 +1,4 @@
-let todolist = [];
+const todolist =JSON.parse(localStorage.getItem("todolist")) || [];
 let value = "";
 let filterMode = "all";
 let selectedTask = null;
@@ -13,6 +13,7 @@ const root = document.querySelector(".wrapper");
 const todoListContainer = document.querySelector(".todoListContainer");
 const addButton = document.querySelector("#addTaskButton");
 const clearAllbtn = document.querySelector("#btnfooter");
+const savebtn = document.querySelector("#btnfooterSave");
 const footerContainer = document.querySelector(".footerCounter");
 const statusChangeButton = document.querySelector("#toggleBtn");
 const statusContainer = document.querySelector(".controls");
@@ -28,6 +29,7 @@ root.addEventListener("click", (event) => {
         selectedTask.title = value;
         clear();
         updateCounter();
+
         render();
         return;
       }
@@ -38,6 +40,7 @@ root.addEventListener("click", (event) => {
       });
       clear();
       updateCounter();
+
       render();
       break;
     case event.target.classList.contains("toggleStatus"):
@@ -51,6 +54,8 @@ root.addEventListener("click", (event) => {
       clearAll();
       clearPaginationContainer();
       break;
+    case event.target.id === "btnfooterSave":
+      saveItems() 
   }
 });
 
@@ -69,6 +74,7 @@ todoListContainer.addEventListener("click", (event) => {
         selectedTask = null;
         clear();
         updateCounter();
+
         render();
         return;
       }
@@ -77,6 +83,7 @@ todoListContainer.addEventListener("click", (event) => {
       selectedTask = null;
       clear();
       updateCounter();
+
       render();
       selectedTask = todolist.find(
         (todo) => todo.id === event.target.dataset.id
@@ -84,6 +91,7 @@ todoListContainer.addEventListener("click", (event) => {
   }
   clear();
   updateCounter();
+
   render();
 });
 
@@ -98,6 +106,7 @@ paginationContainer.addEventListener("click", (event) => {
       }
       clear();
       updateCounter();
+
       render();
     case event.target.id === "paginationRight":
       if (pagination.currentPage < pagination.pageAmount) {
@@ -105,7 +114,9 @@ paginationContainer.addEventListener("click", (event) => {
         pagination.pageContainer.innerText = pagination.currentPage;
       }
       clear();
+      0;
       updateCounter();
+
       render();
   }
 });
@@ -161,6 +172,11 @@ statusContainer.addEventListener("click", (event) => {
   }
 });
 
+function saveItems() {
+  localStorage.setItem("todolist", JSON.stringify(todolist));
+}
+console.log(todolist);
+
 function clear() {
   todoListContainer.innerHTML = "";
   footerContainer.innerHTML = "";
@@ -183,3 +199,4 @@ function clearPaginationContainer(prepereTodo) {
   }
 }
 render();
+
