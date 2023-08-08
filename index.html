@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App JavaScript | CodingNepal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>Todo App</header>
+    <div class="inputField">
+      <input id="textinput" class="addInput" type="text" placeholder="Текст задачи"></input>
+      <button id="addTaskButton" class="addBtn" type="button">
+        <i class="fas fa-plus" id="addTaskButton"> </i></button>
+    </div>
+    <div class="controls">
+      <button data-mode="all" class="ChangeModeBtn" type="button">Все</button>
+      <button data-mode="todo" class="ChangeModeBtn" type="button">В процессе</button>
+      <button data-mode="done" class="ChangeModeBtn" type="button">Выполненные</button>
+    </div>
+    <div class="line">
+      <hr class="hr-line">
+      </hr>
+    </div>
+    <div class="todoListContainer">
+    </div>
+
+    <div class="paginationContainer">
+      <button class="paginationLeft" type="button">
+        <i class="fa fa-arrow-left" id="paginationLeft"> </i></button>
+   <span class="paginationNumber">1</span>
+      <button class="paginationRight" type="button">
+        <i class="fa fa-arrow-right" id="paginationRight"> </i></button>
+    </div>
+
+    <div class="footer">
+      <button id="btnfooter">Clear All</button>
+      <button id="btnfooterSave">Save</button>
+      <div class="footerCounter">
+
+      </div>
+    </div>
+  </div>
+  <script src="/index.js"></script>
+</body>
+<!-- <i class="ChangeModeBtn fa fa-bars">Все</i> -->
+
+</html>
+
